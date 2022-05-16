@@ -1,5 +1,5 @@
-import java.util.HashMap;
 
+import java.util.HashMap;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -49,9 +49,9 @@ public class Hangman extends Application {
     private ObservableList<Node> letters;
 
     private HashMap<Character, Text> alphabet = new HashMap<Character, Text>();
-
+    
     private HangmanImage hangman = new HangmanImage();
-
+    
     private WordReader wordReader = new WordReader();
     
      // layout 
@@ -146,7 +146,9 @@ public class Hangman extends Application {
        
         private SimpleIntegerProperty lives = new SimpleIntegerProperty();
 
-        public HangmanImage() {
+        public HangmanImage()
+        
+        {
             Circle head = new Circle(20);
             head.setTranslateX(SPINE_START_X);
 
@@ -184,7 +186,9 @@ public class Hangman extends Application {
             lives.set(getChildren().size());
         }
 
-        public void reset() {
+        public void reset() 
+        
+        {
             getChildren().forEach(node -> node.setVisible(false));
             lives.set(getChildren().size());
         }
@@ -204,9 +208,11 @@ public class Hangman extends Application {
         private Rectangle bg = new Rectangle(40, 60);
         private Text text;
 
-        public Letter(char letter) {
+        public Letter(char letter) 
+        
+        {
             bg.setFill(letter == ' ' ? Color.DARKSEAGREEN : Color.WHITE);
-            bg.setStroke(Color.BLUE);
+            bg.setStroke(Color.RED);
 
             text = new Text(String.valueOf(letter).toUpperCase());
             text.setFont(DEFAULT_FONT);
@@ -229,7 +235,7 @@ public class Hangman extends Application {
         }
     }
 
-    @Override
+    
     public void start(Stage primaryStage) throws Exception {
         Scene scene = new Scene(createContent());
         scene.setOnKeyPressed((KeyEvent event) -> {
@@ -245,7 +251,7 @@ public class Hangman extends Application {
                 if (t.isStrikethrough())
                     return;
 
-                // mark the letter 'used'
+                // marks the letter
                 t.setFill(Color.BLUE);
                 t.setStrikethrough(true);
 
