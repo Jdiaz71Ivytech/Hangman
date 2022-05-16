@@ -282,7 +282,7 @@ public class Hangman extends Application {
         primaryStage.setHeight(APP_H);
         primaryStage.setTitle("Hangman");
         primaryStage.setScene(scene);
-        primaryStage.show();
+        primaryStage.show;
         startGame();
     }
 
